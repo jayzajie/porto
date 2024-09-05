@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Portfolio | Muhammad Surya Wijaya</title>
+    <link rel="icon" href="boy.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar {
+            background-color: #343a40;
+            transition: background-color 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: #212529;
+        }
+        .navbar .nav-link {
+            font-size: 1rem;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        .navbar .nav-link.active,
+        .navbar .nav-link:hover {
+            color: #ffcc00;
+        }
+        .navbar .social-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #ffcc00;
+        }
+        .social-icons i {
+            font-size: 1.5rem;
+        }
+        .navbar .navbar-nav {
+            margin-left: auto;
+        }
+        .navbar .navbar-nav .nav-item {
+            margin-left: 20px;
+        }
+        .hero {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid #fff;
+            letter-spacing: .15em;
+            width: 30ch;
+            animation: typing 4s steps(30), blink-caret 0.75s step-end infinite;
+            margin: 0 auto;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 30ch; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #fff; }
+        }
+        .section-title {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: #343a40;
+        }
+        .skills-icons i {
+            margin-bottom: 10px;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        .skills-icons i:hover {
+            color: #ff5733;
+        }
+        .skills-icons h4 {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        .projects-scroll {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-bottom: 10px;
+        }
+        .project-card {
+            flex: 1 1 calc(33.333% - 30px);
+            margin: 15px;
+            max-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        .project-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2rem;
+                width: auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .project-card {
+                flex: 1 1 calc(50% - 30px);
+            }
+            .navbar .navbar-nav .nav-item {
+                margin-left: 10px;
+            }
+        }
+        @media (max-width: 576px) {
+            .project-card {
+                flex: 1 1 calc(100% - 30px);
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+                width: auto;
+            }
+            .navbar .nav-link {
+                font-size: 0.9rem;
+            }
+        }
+        .rating i {
+            color: #ffcc00;
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .prevent-copy {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .prevent-copy img {
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="prevent-copy">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Jayzie Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <div class="social-icons">
+                        <a href="https://github.com/jayzajie" target="_blank" class="social-icon">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/muhammad-surya-wijaya-390104286/" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                    </div>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="container">
+            <h1 id="typing-text">Welcome to My Portfolio</h1>
+            <p>Showcasing my skills and projects</p>
+        </div>
+    </section>
+
+    <section id="about" class="container mt-5">
+        <h2 class="section-title">About Me</h2>
+        <p>Hello, my name is Muhammad Surya Wijaya. I am a student at the State Polytechnic of Agriculture Samarinda,
+            and I belong to the class of 2021. Thank you for visiting my portfolio. I am still learning and continuously
+            upgrading my skills to improve. If you have any feedback, please feel free to leave it at the bottom of the
+            page. Thank you!</p>
+    </section>
+
+    <section id="skills" class="container mt-5">
+        <h2 class="section-title">Skills</h2>
+        <div class="row text-center">
+            <div class="col-md-2 col-4 skills-icons">
+                <i class="fab fa-laravel fa-3x"></i>
+                <h4>Laravel</h4>
+            </div>
+            <div class="col-md-2 col-4 skills-icons">
+                <i class="fab fa-php fa-3x"></i>
+                <h4>PHP</h4>
+            </div>
+            <div class="col-md-2 col-4 skills-icons">
+                <i class="fab fa-html5 fa-3x"></i>
+                <h4>HTML</h4>
+            </div>
+            <div class="col-md-2 col-4 skills-icons">
+                <i class="fab fa-js fa-3x"></i>
+                <h4>JavaScript</h4>
+            </div>
+            <div class="col-md-2 col-4 skills-icons">
+                <i class="fab fa-css3-alt fa-3x"></i>
+                <h4>CSS</h4>
+            </div>
+            <div class="col-md-2 col-4 skills-icons">
+                <i class="fas fa-code fa-3x"></i>
+                <h4>LUA</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container mt-5">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-scroll">
+            <div class="card project-card">
+                <a href="https://github.com/jayzajie/Todo-List-Laravel" target="_blank">
+                    <img src="Icecat1-300x300.svg" class="card-img-top" alt="Project 1">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Project 1</h5>
+                    <p class="card-text">Make simple TodoList with laravel framework.</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card project-card">
+                <a href="https://github.com/jayzajie/inventory-app-laravel" target="_blank">
+                    <img src="Icecat1-300x300.svg" class="card-img-top" alt="Project 2">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Project 2</h5>
+                    <p class="card-text">Make Simple Inventory App with laravel framework.</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card project-card">
+                <a href="#ComingSoon" target="_blank">
+                    <img src="Icecat1-300x300.svg" class="card-img-top" alt="Project 3">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Project 3</h5>
+                    <p class="card-text">A mobile-responsive web app using React and Bootstrap.</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container mt-5">
+        <h2 class="section-title">Contact Me</h2>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="mt-5">
+        <div class="container text-center">
+            <p>&copy; 2024 My Portfolio. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetID = this.getAttribute('href');
+                const targetElement = document.querySelector(targetID);
+
+                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const startPosition = window.pageYOffset;
+                const duration = 800;
+                let startTime = null;
+
+                function animateScroll(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = ease(timeElapsed, startPosition, targetPosition - startPosition, duration);
+                    window.scrollTo(0, run);
+
+                    if (timeElapsed < duration) requestAnimationFrame(animateScroll);
+                }
+
+                function ease(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+
+                requestAnimationFrame(animateScroll);
+
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            alert('Right Click Is Disabled');
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+                e.preventDefault();
+                alert('Copy Is Disabled');
+            }
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                alert('Developer Tools Is Disabled');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
